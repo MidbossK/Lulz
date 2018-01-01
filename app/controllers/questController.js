@@ -32,23 +32,23 @@ angular
         /**
          * Use the factory to POST to Firebase
          */
-        EmployeeFactory.add(employee).then(() => {
+        questFactory.add(employee).then(() => {
             $scope.newQuest.firstName = ""
             $scope.newQuest.lastName = ""
         })
 
         /**
-         * If POST was successful, retrieve new list of employees
+         * If POST was successful, retrieve new list of quests
          */
         .then(() => {
-            return EmployeeFactory.list()
+            return questFactory.list()
         })
 
         /**
-         * Bind new list of employees to scope so view gets updated
+         * Bind new list of quests to scope so view gets updated
          */
-        .then(employees => {
-            $scope.employees = employees
+        .then(quests => {
+            $scope.quests = quests
         })
     }
 })

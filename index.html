@@ -3,19 +3,35 @@
 <head>
     <title>Title of stuff</title>
 </head>
-<body ng-app="LulzApp">
-
-    
+  <body ng-app="QuestLog">
     <div ng-view></div>
     
-    <script src="./lib/node_modules/firebase/firebase.js"></script>
-    <script src="./lib/node_modules/angular/angular.min.js"></script>
+  <!-- <div ng-include="'app/partials/quest-list.html'"></div> -->
+    <!-- <div ng-view></div> -->
+    <!-- Libraries -->
+    <!-- <script src="./lib/node_modules/firebase/firebase.js"></script> -->
+    <script src="./lib/node_modules/angular/angular.min.js"></script>    
     <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
-    <script src="./app/app.js"></script>
-    <script src="./app/app.config.js"></script>
-
-    <script src="./app/auth/authFactory.js"></script>
-    <script src="./app/auth/authCtrl.js"></script>
     
-</body>
+    <!-- Main App File -->
+    <script src="./app/app.js"></script>
+    
+    <!-- Factories -->
+    <script src="./app/factories/questFactory.js"></script>
+    
+    <!-- Controllers -->
+    <script src="./app/controllers/QuestListController.js"></script>
+    
+    
+    
+    
+    <!-- <script src="./app/app.config.js"></script> -->
+    
+    <!-- <script src="./app/auth/authFactory.js"></script> -->
+    
+    <!-- <script src="./app/auth/authCtrl.js"></script> -->
+    
+    <!-- <script src="linesMath.js"></script> -->
+    
+  </body>
 </html>
