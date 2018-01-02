@@ -12,7 +12,7 @@
   </ul>
   <a href="#/edit/{{quest.id}}">Edit Quest</a>
   <button ng-click="deleteQuest(quest.id)">Delete Quest</button>
-  
+  <button ng-click="completeQuest(quest.id)">Complete Quest</button>
 
 </div>
 
@@ -27,5 +27,8 @@
     <li>Accepted on: {{quest.createdAt}}</li>
     <li>EXP: {{quest.expEarned}}</li>
     
-</ul>
+  </ul>
+  
+  <button ng-click="deleteQuest(quest.id)">Delete Quest</button>
+
 </div>

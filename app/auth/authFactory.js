@@ -6,9 +6,9 @@ angular.module("LulzApp")
         if (user) {
             currentUserData = user
 
-            if ($location.url() !== "/employees/list") {
+            if ($location.url() !== "/") {
                 $timeout(function () {
-                    $location.url("/employees/list")
+                    $location.url("/")
                 }, 100)
             } else {
                 $route.reload()

@@ -11,6 +11,12 @@ app.controller('QuestListController', function($scope, $route, questFactory){
         $route.reload()
     }
 
+    $scope.completeQuest = function(id) {
+
+        questFactory.completeQuest(id)
+
+        $route.reload()
+    }
 
 })
 

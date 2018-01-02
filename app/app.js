@@ -7,10 +7,10 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'app/partials/quest-list.html',
         controller: 'QuestListController',
     })
-    .when('/', {
-        templateUrl: 'app/partials/login.html',
-        controller: 'loginController',
-    })
+    // .when('/', {
+    //     templateUrl: 'app/partials/login.html',
+    //     controller: 'loginController',
+    // })
 
     .when('/edit/:id', {
         templateUrl: 'app/partials/quest-edit.html',

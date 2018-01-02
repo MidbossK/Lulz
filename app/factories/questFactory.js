@@ -36,6 +36,14 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             allQuests.push(quest)
         },
 
+        completeQuest(id){
+            for (let index = 0; index < allQuests.length; index++) {
+                    if (allQuests[index].id === id){
+                    allQuests[index].completedFlag = true
+                }
+            }        
+        },
+
         deleteQuest(id){
            for (let index = 0; index < allQuests.length; index++) {    
                 if (allQuests[index].id === id){

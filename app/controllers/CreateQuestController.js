@@ -1,4 +1,4 @@
-app.controller('CreateQuestController', function($scope, questFactory){
+app.controller('CreateQuestController', function($scope, $location, questFactory){
     const validateInfo = function() {
         console.log($scope)
 
@@ -15,6 +15,7 @@ app.controller('CreateQuestController', function($scope, questFactory){
                 description: $scope.description,
                 expEarned: $scope.expEarned,
             })
+            $location.path("/home")
 
         } else {
             alert("Please fill in all fields.")
