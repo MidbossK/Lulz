@@ -12,7 +12,7 @@ app.config(function ($routeProvider, $locationProvider) {
         controller: 'loginController',
     })
 
-    .when('/edit', {
+    .when('/edit/:id', {
         templateUrl: 'app/partials/quest-edit.html',
         controller: 'EditQuestController',
     })

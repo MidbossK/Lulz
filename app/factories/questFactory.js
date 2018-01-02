@@ -27,17 +27,45 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
 
 
     const questFactoryObject = {
-        addQuest(quest){
-            console.log("eewe", quest)
-            
+        addQuest(quest){            
             quest.createdAt = Date.now();
             quest.completedAt = null;
             quest.completedFlag = false;
             quest.id = allQuests.length + 1
             
             allQuests.push(quest)
+        },
 
-            console.log(allQuests)
+        deleteQuest(id){
+           for (let index = 0; index < allQuests.length; index++) {    
+                if (allQuests[index].id === id){
+                    allQuests.splice(index,1)
+                }               
+            }
+        },
+
+        editQuest(newQuest){
+            for (let index = 0; index < allQuests.length; index++) {    
+                if (allQuests[index].id == newQuest.id){
+                    allQuests[index].name = newQuest.name
+                    allQuests[index].description = newQuest.description
+                    allQuests[index].expEarned = newQuest.expEarned
+                    console.log(allQuests[index])
+                }
+            }
+        },
+
+        getQuestById(id) {
+
+            let quest = {}
+            for (let index = 0; index < allQuests.length; index++) {    
+                if (allQuests[index].id == id){
+                    quest = allQuests[index] 
+                }
+            }
+
+            return quest
+
         },
 
         getQuests() {
@@ -61,6 +89,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             return [activeQuests, completedQuests]
 
         }
+        
 
     }
 

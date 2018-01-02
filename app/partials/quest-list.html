@@ -10,7 +10,10 @@
     <li>EXP: {{quest.expEarned}}</li>
     
   </ul>
-  <button ng-click="deleteQuest(quest)">Delete Quest</button>
+  <a href="#/edit/{{quest.id}}">Edit Quest</a>
+  <button ng-click="deleteQuest(quest.id)">Delete Quest</button>
+  
+
 </div>
 
 <h1>Completed Quest List</h1>
