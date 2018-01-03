@@ -1,8 +1,14 @@
 app.controller('QuestListController', function($scope, $route, questFactory){
 
-    $scope.quests = questFactory.getSortedQuests();
-    $scope.activeQuests = $scope.quests[0]
-    $scope.completedQuests = $scope.quests[1]
+    $scope.quests = questFactory.getQuests()
+        .then((data) => {
+           const sorted = questFactory.sortQuests(data);
+            console.log($scope)
+           $scope.activeQuests = sorted[0];
+           $scope.completedQuests = sorted[1];
+
+           $scope.$apply();
+        });
 
     $scope.deleteQuest = function(id) {
     
@@ -19,4 +25,3 @@ app.controller('QuestListController', function($scope, $route, questFactory){
     }
 
 })
-

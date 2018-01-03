@@ -1,40 +1,28 @@
 app.factory("questFactory", function ($http, $timeout, $location, $route) {
-    
-
-    const allQuests = [
-        
-        {
-            id: 1,
-            name: 'Keep the wilderness from overtaking the castle',
-            description: 'Cut the grass',
-            createdAt: '01/03/2018',
-            completedAt: null,
-            completedFlag: false,
-            expEarned: 100,
-        },
-        
-        {
-            id: 2,
-            name: 'Kill the evil dust bunny',
-            description: 'Take out garbage',
-            createdAt: '11/11/2017',
-            completedAt: null,
-            completedFlag: true,
-            expEarned: 50,
-        },
-
-    ];
-
+    let activeQuests = []
+    let completedQuests = []
+    // const allQuests = [];
 
     const questFactoryObject = {
         addQuest(quest){            
             quest.createdAt = Date.now();
             quest.completedAt = null;
             quest.completedFlag = false;
-            quest.id = allQuests.length + 1
+
             
-            
-            allQuests.push(quest)
+            return new Promise((resolve, reject) => {
+                $http({
+                    url: 'https://lulz-bedcc.firebaseio.com/${user.uid}.json',
+                    method: 'POST',
+                    data: quest,
+                })
+                .then((response) => {
+                    resolve()
+                })
+                .catch((error) => {
+                    reject(error)
+                })
+            })
         },
 
         completeQuest(id){
@@ -54,17 +42,15 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
         },
 
         editQuest(newQuest){
-            for (let index = 0; index < allQuests.length; index++) {    
-                if (allQuests[index].id == newQuest.id){
-                    allQuests[index].name = newQuest.name
-                    allQuests[index].description = newQuest.description
-                    allQuests[index].expEarned = newQuest.expEarned
-                    console.log(allQuests[index])
-                }
+            function writeUserData(expEarned) {
+                firebase.database().ref('quests/' + uid).set({
+                  expEarned: 22,
+                });
             }
         },
+    
 
-        getQuestById(id) {
+        getQuestById(id)  {
 
             let quest = {}
             for (let index = 0; index < allQuests.length; index++) {    
@@ -76,29 +62,43 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
         },
 
         getQuests() {
-            return allQuests
+            return new Promise((resolve, reject) => {
+                $http({
+                    url: 'https://lulz-bedcc.firebaseio.com/quests.json', 
+                    method: 'GET',
+                })
+                .then((response) => {
+                    resolve(response.data)
+                })
+                .catch((error) => {
+                    reject(error)
+                })
+            })
         },
 
-        getSortedQuests(){
-            const activeQuests = []
-            const completedQuests = []
+        sortQuests(quests){
+            const active = []
+            const completed = []
 
-            const quests = this.getQuests();
-            
-            quests.map((quest) => {
-                if (quest.completedFlag){
-                    completedQuests.push(quest) 
+            Object.keys(quests).map((key) => {
+                if (quests[key].completedFlag){
+                    completed.push(quests[key]) 
                 } else {
-                    activeQuests.push(quest) 
+                    active.push(quests[key]) 
                 }
             })
 
-            return [activeQuests, completedQuests]
+            console.log('sort', active, completed)
+            return [active, completed]
+        },
 
-        }
-        
+        getActiveQuests(){
+            return this.activeQuests
+        },
+        getCompletedQuests(){
+            return this.completedQuests
+        },
     }
-
     return questFactoryObject
 })
 

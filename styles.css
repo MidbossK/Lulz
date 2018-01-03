@@ -1,18 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Advent+Pro:100);
-
 body { 
-  background: url(http://1041uuu.tumblr.com/post/39470533668/alchemist-gif), no-repeat center center fixed;
+  background: url('/#/bgstore.gif');
   background-size: cover;
-}
-
-h4{
-  font-family: 'Advent Pro', sans-serif;
-  font-size: 3em;
-  margin: .2em .5em;
-  color: rgba(0,0,0, 0.3);
-}
-
-body, html {
-  cursor: url(https://cdn.pixabay.com/photo/2014/04/02/14/06/point-306186_1280.png);
-  height: 100%;	
 }

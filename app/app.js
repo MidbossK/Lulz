@@ -27,7 +27,7 @@ app.config(function ($routeProvider, $locationProvider, FIREBASE_CONFIG) {
         controller: 'CreateQuestController',
     })
 
-    .otherwise ('/');
+    .otherwise ('/home');
 
 
     $locationProvider.hashPrefix('');

@@ -16,9 +16,13 @@ app.controller('CreateQuestController', function($scope, $location, questFactory
                 expEarned: $scope.expEarned,
                 userId: $scope.userId
             })
-            $location.path("/home")
-
-
+            .then((response) => {
+                $location.path("/home")
+            })
+            .catch((error) => {
+                console.log("diff oh noes", error)
+            })        
+            
         } else {
             alert("Please fill in all fields.")
         }
