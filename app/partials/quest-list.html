@@ -10,12 +10,12 @@
     <li>Gold Reward: {{quest.expEarned}}</li>
     
   </ul>
-  <button ng-click="#/edit/{{quest.id}}">Edit Quest</button>
+  <button ng-click="editQuest(quest.id)">Edit Quest</button>
   <button ng-click="deleteQuest(quest.id)">Delete Active Quest</button>
-  <button ng-click="completeQuest(quest.id)">Complete Quest</button>
+  <button ng-click="completeQuest(quest)">Complete Quest</button>
 
 </div>
-
+<!-- {{'#/edit/' + quest.id}}" -->
 <center><h1>Completed Quest List</h1></center>
 
 <div ng-repeat="quest in completedQuests">

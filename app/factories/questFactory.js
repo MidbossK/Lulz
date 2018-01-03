@@ -25,45 +25,40 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             })
         },
 
-        completeQuest(id){
-            for (let index = 0; index < allQuests.length; index++) {
-                    if (allQuests[index].id === id){
-                    allQuests[index].completedFlag = true
-                }
-            }        
-        },
+        completeQuest(quest){
+            quest.completedFlag = true
+            return $http({
+                url: `https://lulz-bedcc.firebaseio.com/quests/${quest.id}.json`,
+                method: 'PATCH',
+                data: quest,
+            })
+        },        
+
 
         deleteQuest(id){
-            "byeByeEvent": {
-                value: function (key) {
-                    return firebase.auth().currentUser.getIdToken(true)
-                        .then(idToken => {
-                            return $http({
-                                method: "DELETE",
-                                url: `${Firebase_Config.databaseURL}/savedEvents/${key}/.json?auth=${idToken}`
-                            })
-                        })
-                }
-            },
-                }               
-            }
+                    return $http({
+                        url: `https://lulz-bedcc.firebaseio.com/quests/${id}.json`,
+                        method: 'DELETE',
+                })
         },
 
-        editQuest(newQuest){
-            function writeUserData(expEarned) {
-                firebase.database().ref('quests/' + uid).set({
-                  expEarned: 22,
+        editQuest(quest){
+
+
+            return $http({
+                url: `https://lulz-bedcc.firebaseio.com/quests/${quest.id}.json`,
+                method: 'PATCH',
+                data: quest,
                 });
-            }
         },
     
 
         getQuestById(id)  {
 
             let quest = {}
-            for (let index = 0; index < allQuests.length; index++) {    
-                if (allQuests[index].id == id){
-                    quest = allQuests[index] 
+            for (let index = 0; index < activeQuests.length; index++) {    
+                if (activeQuests[index].id == id){
+                    quest = activeQuests[index] 
                 }
             }
             return quest
@@ -89,6 +84,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             const completed = []
 
             Object.keys(quests).map((key) => {
+                    quests[key].id = key
                 if (quests[key].completedFlag){
                     completed.push(quests[key]) 
                 } else {

@@ -13,6 +13,8 @@ app.controller('EditQuestController', function($scope, $location, $routeParams, 
             description: $scope.description,
             expEarned: $scope.expEarned
         })
+        .then(() => {
         $location.path("/home")
+        })
     }
 })
