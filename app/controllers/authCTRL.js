@@ -1,5 +1,5 @@
-angular.module("LulzApp")
-.controller("AuthCTRL", function($scope, $location, AuthFactory) {
+angular.module("QuestLog")
+.controller("authCTRL", function($scope, $location, AuthFactory) {
     $scope.auth = {}
 
     $scope.logoutUser = function () {
@@ -9,14 +9,15 @@ angular.module("LulzApp")
 
     $scope.logMeIn = function () {
         AuthFactory.authenticate($scope.auth).then(function (didLogin) {
+            AuthFactory.setUserId(didLogin.uid)
             $scope.login = {}
-            $location.url("/")
+            $location.url("/home")
         })
     }
-
+    
     $scope.registerUser = function(registerNewUser) {
       AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
-        logMeIn(registerNewUser)
+        $scope.logMeIn(registerNewUser)
       })
     }
 

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- <link rel="styles.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
     <title>Lulz</title>
+
 </head>
   <body ng-app="QuestLog">
     <div ng-include="'app/partials/navBar.html'"></div>
     <div ng-view></div>
     
-  <!-- <div ng-include="'app/partials/quest-list.html'"></div> -->
-    <!-- <div ng-view></div> -->
     <!-- Libraries -->
-    <!-- <script src="./lib/node_modules/firebase/firebase.js"></script> -->
     <script src="./lib/node_modules/angular/angular.min.js"></script>    
     <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
     
@@ -20,18 +19,19 @@
     
     <!-- Factories -->
     <script src="./app/factories/questFactory.js"></script>
+    <script src="./app/factories/itemFactory.js"></script>
     
     <!-- Controllers -->
     <script src="./app/controllers/QuestListController.js"></script>
     <script src="./app/controllers/EditQuestController.js"></script>
     <script src="./app/controllers/CreateQuestController.js"></script>
+    <script src="./app/controllers/StoreController.js"></script>
     
-    
-    <!-- <script src="./app/app.config.js"></script> -->
-    
-    <!-- <script src="./app/auth/authFactory.js"></script> -->
-    
-    <!-- <script src="./app/auth/authCtrl.js"></script> -->
+    <!-- Auth  -->
+    <script src="./lib/node_modules/firebase/firebase.js"></script>
+    <script src="./app/auth/authFactory.js"></script> 
+    <script src="./app/controllers/authCTRL.js"></script>
+    <script src="./app/config.js"></script>
     
     <!-- <script src="linesMath.js"></script> -->
     

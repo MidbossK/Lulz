@@ -53,7 +53,7 @@ const taskFactory = (taskTitle, taskCompletionDate) => {
 }
 
 
-var AnimeLines = function() {
+var speedLines = function() {
     var 
       lineField,
       height,
@@ -145,4 +145,4 @@ var AnimeLines = function() {
     
   }();
   
-  AnimeLines.init();
+  speedLines.init();

@@ -1,6 +1,7 @@
-angular.module("LulzApp")
+angular.module("QuestLog")
 .factory("AuthFactory", function ($http, $timeout, $location, $route) {
     let currentUserData = null
+    let userId = null
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -24,10 +25,20 @@ angular.module("LulzApp")
     })
 
     return Object.create(null, {
+
         isAuthenticated: {
             value: () => {
                 const user = currentUserData
                 return user ? true : false
+            }
+        },
+        getUserId: {
+            value: () => this.userId
+        },
+
+        setUserId:{ 
+            value: (uid) => {
+                this.userId = uid
             }
         },
         getUser: {

@@ -33,6 +33,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             quest.completedFlag = false;
             quest.id = allQuests.length + 1
             
+            
             allQuests.push(quest)
         },
 
@@ -71,9 +72,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
                     quest = allQuests[index] 
                 }
             }
-
             return quest
-
         },
 
         getQuests() {
@@ -98,10 +97,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
 
         }
         
-
     }
-
-
 
     return questFactoryObject
 })

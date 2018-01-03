@@ -7,11 +7,11 @@
   
     <li>Description: {{quest.description}}</li>
     <li>Accepted on: {{quest.createdAt}}</li>
-    <li>EXP: {{quest.expEarned}}</li>
+    <li>Gold Reward: {{quest.expEarned}}</li>
     
   </ul>
   <a href="#/edit/{{quest.id}}">Edit Quest</a>
-  <button ng-click="deleteQuest(quest.id)">Delete Quest</button>
+  <button ng-click="deleteQuest(quest.id)">Delete Active Quest</button>
   <button ng-click="completeQuest(quest.id)">Complete Quest</button>
 
 </div>
@@ -25,10 +25,10 @@
   
     <li>Description: {{quest.description}}</li>
     <li>Accepted on: {{quest.createdAt}}</li>
-    <li>EXP: {{quest.expEarned}}</li>
+    <li>Gold Reward: {{quest.expEarned}}</li>
     
   </ul>
   
-  <button ng-click="deleteQuest(quest.id)">Delete Quest</button>
+  <button ng-click="deleteQuest(quest.id)">Remove Completed Quest</button>
 
 </div>

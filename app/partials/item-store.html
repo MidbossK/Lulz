@@ -1,0 +1,19 @@
+<h1>Store</h1>
+
+<div>
+    <a href="/item-create.html">Add item!</a>
+</div>
+
+<div ng-repeat="item in items">
+  <h2>{{item.name}}</h2>
+
+  <ul>
+  
+    <li>Item: {{item.itemName}}</li>
+    <li>Description: {{item.description}}</li>
+    <li>Price: {{item.goldPrice}}</li>
+    
+  </ul>
+  <button ng-click="item(item.id)">Buy!</button>
+
+</div>
