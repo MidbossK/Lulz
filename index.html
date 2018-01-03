@@ -7,10 +7,15 @@
 
 </head>
 
-  <body img src="bgstore.gif" ng-app="QuestLog">
+  <body ng-app="QuestLog">
     <div ng-include="'app/partials/navBar.html'"></div>
-    <div ng-view></div>
+    <img src="/images/emptybub.gif" class="bubble">
+    <img src="/images/welcometype.gif" class="bubble2">
+    <div class="menu" ng-view></div>
     
+    <script>
+      document.getElementsByTagName("body")[0].style.cursor = "url('http://piq.codeus.net/static/media/userpics/piq_42831.png'), auto";
+    </script>
     <!-- Libraries -->
     <script src="./lib/node_modules/angular/angular.min.js"></script>    
     <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
