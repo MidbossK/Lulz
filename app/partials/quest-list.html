@@ -10,10 +10,9 @@
     <li>Gold Reward: {{quest.expEarned}}</li>
     
   </ul>
-  <a href="#/edit/{{quest.id}}">Edit Quest</a>
+  <button ng-click="#/edit/{{quest.id}}">Edit Quest</button>
   <button ng-click="deleteQuest(quest.id)">Delete Active Quest</button>
   <button ng-click="completeQuest(quest.id)">Complete Quest</button>
-  
 
 </div>
 
@@ -28,7 +27,7 @@
     <li>Gold Reward: {{quest.expEarned}}</li>
     
   </ul>
-  
+  <br>
   <button ng-click="deleteQuest(quest.id)">Remove Completed Quest</button>
 
 </div>

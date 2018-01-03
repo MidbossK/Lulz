@@ -8,7 +8,7 @@ html {
 }
 
 .menu {
-    background: rgba(151, 165, 22, 0.7);
+    background: rgba(125, 134, 18, 0.8);
     border-radius: 25px;
     height:746px;
     width: 428px;
@@ -31,4 +31,8 @@ html {
   position: relative;
   bottom: -230px;
   right: -50px;
+}
+
+.a {
+  color: white;
 }

@@ -12,7 +12,7 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
             
             return new Promise((resolve, reject) => {
                 $http({
-                    url: 'https://lulz-bedcc.firebaseio.com/${user.uid}.json',
+                    url: 'https://lulz-bedcc.firebaseio.com/quests/.json',
                     method: 'POST',
                     data: quest,
                 })
@@ -34,9 +34,17 @@ app.factory("questFactory", function ($http, $timeout, $location, $route) {
         },
 
         deleteQuest(id){
-           for (let index = 0; index < allQuests.length; index++) {    
-                if (allQuests[index].id === id){
-                    allQuests.splice(index,1)
+            "byeByeEvent": {
+                value: function (key) {
+                    return firebase.auth().currentUser.getIdToken(true)
+                        .then(idToken => {
+                            return $http({
+                                method: "DELETE",
+                                url: `${Firebase_Config.databaseURL}/savedEvents/${key}/.json?auth=${idToken}`
+                            })
+                        })
+                }
+            },
                 }               
             }
         },
